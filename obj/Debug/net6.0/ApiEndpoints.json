@@ -98,5 +98,15 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "Blocks_api.Controllers.WeatherForecastController",
+    "Method": "GetSecretAdminWeather",
+    "RelativePath": "WeatherForecast/SecretAdminWeather",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
   }
 ]

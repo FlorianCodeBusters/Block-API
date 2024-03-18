@@ -13,19 +13,25 @@ using System.Text;
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
 
-// Add services to the container.
-
-
-
-
-//Add Identity
+//Add roles services
 builder.Services.AddIdentity<User, IdentityRole>()
+        .AddRoles<IdentityRole>()
+    .AddRoleManager<RoleManager<IdentityRole>>()
     .AddEntityFrameworkStores<IdentificationDbContext>()
     .AddDefaultTokenProviders();
 //Add a DB
 builder.Services.AddDbContext<IdentificationDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("Db")));
 
 
+
+//Add auth policies
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("ElevatedRights", policy =>
+    policy.RequireRole(Roles.Admin));
+    options.AddPolicy("StandardRights", policy =>
+        policy.RequireRole(Roles.User, Roles.Admin));
+});
 
 
 //Add auth
@@ -58,7 +64,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Wedding Planner API", Version = "v1" });
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Blocks API", Version = "v1" });
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         Description = @"JWT Authorization header using the Bearer scheme. \r\n\r\n 
@@ -119,5 +125,13 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+//Seed the DB
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    await SeedManager.Seed(services);
+}
 
 app.Run();

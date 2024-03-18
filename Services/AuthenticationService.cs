@@ -44,6 +44,7 @@ namespace Blocks_api.Services
             };
 
             IdentityResult creationResult = await _userManager.CreateAsync(newUser, registerRequest.Password);
+            await _userManager.AddToRoleAsync(newUser, Roles.User);
 
             if (!creationResult.Succeeded)
             {
@@ -65,12 +66,16 @@ namespace Blocks_api.Services
                 throw new ArgumentException($"Unable to authenticate user {loginRequest.Username}");
             }
 
+            var userRoles = await _userManager.GetRolesAsync(user);
+
             List<Claim> authClaims = new List<Claim>
             {
                 new(ClaimTypes.Name, user.UserName),
                 new(ClaimTypes.Email, user.Email),
                 new(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
             };
+
+            authClaims.AddRange(userRoles.Select(role => new Claim(ClaimTypes.Role, role)));
 
             var token = GetToken(authClaims);
 

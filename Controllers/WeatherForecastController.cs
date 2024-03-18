@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Blocks_api.Controllers
 {
     [ApiController]
-    [Authorize]
+    [Authorize(Policy = "StandardRights")]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
@@ -18,6 +18,13 @@ namespace Blocks_api.Controllers
         public WeatherForecastController(ILogger<WeatherForecastController> logger)
         {
             _logger = logger;
+        }
+
+        [HttpGet("SecretAdminWeather")]
+        [Authorize(Policy = "ElevatedRights")]
+        public IActionResult GetSecretAdminWeather()
+        {
+            return Ok("This is a secret admin weather forecast");
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
