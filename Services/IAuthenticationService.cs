@@ -1,10 +1,11 @@
 ﻿using Blocks_api.Dtos;
+using FluentResults;
 
 namespace Blocks_api.Services
 {
     public interface IAuthenticationService
     {
-        Task<string> Register(RegisterRequest registerRequest);
-        Task<string> Login(LoginRequest loginRequest);
+        Task<Result<string>> Register(RegisterRequest registerRequest);
+        Task<Result<string>> Login(LoginRequest loginRequest);
     }
 }

@@ -9,6 +9,7 @@ using System.IdentityModel.Tokens.Jwt;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System.Security.Cryptography;
+using FluentResults;
 
 namespace Blocks_api.Services
 {
@@ -23,17 +24,17 @@ namespace Blocks_api.Services
             _configuration = configuration;
         }
 
-        public async Task<string> Register(RegisterRequest registerRequest)
+        public async Task<Result<string>> Register(RegisterRequest registerRequest)
         {
             User userByMail = await _userManager.FindByEmailAsync(registerRequest.Email);
             User userByUsername = await _userManager.FindByNameAsync(registerRequest.Username);
 
             if(userByMail != null)
             {
-                throw new ArgumentException($"User with {userByMail} already exists");
+                return Result.Fail(new Error($"User with {userByMail} already exists"));
             }else if (userByUsername != null)
             {
-                throw new ArgumentException($"User with {userByUsername} already exists");
+                return Result.Fail(new Error($"User with {userByUsername} already exists"));
             }
 
             User newUser = new User()
@@ -48,13 +49,13 @@ namespace Blocks_api.Services
 
             if (!creationResult.Succeeded)
             {
-                throw new ArgumentException($"Unable to register user {registerRequest.Username} errors: {GetErrorsText(creationResult.Errors)}");
+                return Result.Fail(new Error($"Unable to register user {registerRequest.Username} errors: {GetErrorsText(creationResult.Errors)}")); 
             }
 
             return await Login(new LoginRequest { Username = registerRequest.Email, Password = registerRequest.Password });
         }
 
-        public async Task<string> Login(LoginRequest loginRequest)
+        public async Task<Result<string>> Login(LoginRequest loginRequest)
         {
             User user = await _userManager.FindByEmailAsync(loginRequest.Username);
             if (user == null)
@@ -63,7 +64,7 @@ namespace Blocks_api.Services
             }
             if(user == null || !await _userManager.CheckPasswordAsync(user, loginRequest.Password))
             {
-                throw new ArgumentException($"Unable to authenticate user {loginRequest.Username}");
+                return Result.Fail(new Error($"Unable to authenticate user {loginRequest.Username}"));
             }
 
             var userRoles = await _userManager.GetRolesAsync(user);
@@ -79,7 +80,7 @@ namespace Blocks_api.Services
 
             var token = GetToken(authClaims);
 
-            return new JwtSecurityTokenHandler().WriteToken(token);
+            return Result.Ok(new JwtSecurityTokenHandler().WriteToken(token));
         }
 
         public static string HashPassword(string password)

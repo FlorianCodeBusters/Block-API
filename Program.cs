@@ -127,11 +127,9 @@ app.UseAuthorization();
 app.MapControllers();
 
 //Seed the DB
-
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
     await SeedManager.Seed(services);
 }
-
 app.Run();

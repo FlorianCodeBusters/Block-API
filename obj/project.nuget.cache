@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "G8wUomBbZwz6duSI02xEZXlsu4yI4s/85M+cGT+9tCcFoZDtegWkcXmOgAXButEF6QoSlci8/u3DKu6yAzAbxw==",
+  "dgSpecHash": "caaNG7UJM9qygPly0OVNJOuyAl8w+NMhx63jjGEx5ihA9qreyHzvenzjxHuu4NKsxJHBGDt+cYn2qJTrerIJUA==",
   "success": true,
   "projectFilePath": "C:\\Workflow\\Project_Blocks\\Blocks-api\\Blocks-api\\Blocks-api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\FlorianKuhlmann\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\FlorianKuhlmann\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
+    "C:\\Users\\FlorianKuhlmann\\.nuget\\packages\\fluentresults\\3.15.2\\fluentresults.3.15.2.nupkg.sha512",
     "C:\\Users\\FlorianKuhlmann\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\FlorianKuhlmann\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.27\\microsoft.aspnetcore.authentication.jwtbearer.6.0.27.nupkg.sha512",
     "C:\\Users\\FlorianKuhlmann\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.27\\microsoft.aspnetcore.cryptography.internal.6.0.27.nupkg.sha512",

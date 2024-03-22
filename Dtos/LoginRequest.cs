@@ -4,9 +4,10 @@ namespace Blocks_api.Dtos
 {
     public class LoginRequest
     {
-        [Required]
+        [MinLength(Const.UsernameMinLength, ErrorMessage = Const.UsernameLengthValidationErrorMessage)]
         public string? Username { get; set; }
-        [Required]
+
+        [RegularExpression(Const.PasswordRegex, ErrorMessage = Const.PassWordValidationErrorMessage)]
         public string? Password { get; set; }
     }
 }

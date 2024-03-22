@@ -1,14 +1,15 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Blocks_api.Dtos;
 
 namespace Blocks_api.Dtos
 {
     public class RegisterRequest
     {
-        [Required]
+        [MinLength(Const.UsernameMinLength, ErrorMessage = Const.UsernameLengthValidationErrorMessage)]
         public string? Username { get; set; }
-        [Required]
+        [RegularExpression(Const.PasswordRegex, ErrorMessage = Const.PassWordValidationErrorMessage)]
         public string? Password { get; set; }
-        [Required]
+        [EmailAddress(ErrorMessage = Const.EmailValidationErrorMessage)]
         public string? Email { get; set; }
     }
 }

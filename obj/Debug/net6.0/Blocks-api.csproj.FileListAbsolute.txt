@@ -93,3 +93,4 @@ C:\Workflow\Project_Blocks\Blocks-api\Blocks-api\bin\Debug\net6.0\System.Text.En
 C:\Workflow\Project_Blocks\Blocks-api\Blocks-api\bin\Debug\net6.0\System.Text.Json.dll
 C:\Workflow\Project_Blocks\Blocks-api\Blocks-api\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
 C:\Workflow\Project_Blocks\Blocks-api\Blocks-api\obj\Debug\net6.0\Blocks-api.sourcelink.json
+C:\Workflow\Project_Blocks\Blocks-api\Blocks-api\bin\Debug\net6.0\FluentResults.dll
