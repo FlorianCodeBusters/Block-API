@@ -94,3 +94,16 @@ C:\Workflow\Project_Blocks\Blocks-api\Blocks-api\bin\Debug\net6.0\System.Text.Js
 C:\Workflow\Project_Blocks\Blocks-api\Blocks-api\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
 C:\Workflow\Project_Blocks\Blocks-api\Blocks-api\obj\Debug\net6.0\Blocks-api.sourcelink.json
 C:\Workflow\Project_Blocks\Blocks-api\Blocks-api\bin\Debug\net6.0\FluentResults.dll
+C:\Workflow\Project_Blocks\Blocks-api\Blocks-api\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Binder.dll
+C:\Workflow\Project_Blocks\Blocks-api\Blocks-api\bin\Debug\net6.0\Microsoft.Extensions.Diagnostics.Abstractions.dll
+C:\Workflow\Project_Blocks\Blocks-api\Blocks-api\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Workflow\Project_Blocks\Blocks-api\Blocks-api\bin\Debug\net6.0\Microsoft.Extensions.Hosting.Abstractions.dll
+C:\Workflow\Project_Blocks\Blocks-api\Blocks-api\bin\Debug\net6.0\Serilog.dll
+C:\Workflow\Project_Blocks\Blocks-api\Blocks-api\bin\Debug\net6.0\Serilog.AspNetCore.dll
+C:\Workflow\Project_Blocks\Blocks-api\Blocks-api\bin\Debug\net6.0\Serilog.Extensions.Hosting.dll
+C:\Workflow\Project_Blocks\Blocks-api\Blocks-api\bin\Debug\net6.0\Serilog.Extensions.Logging.dll
+C:\Workflow\Project_Blocks\Blocks-api\Blocks-api\bin\Debug\net6.0\Serilog.Formatting.Compact.dll
+C:\Workflow\Project_Blocks\Blocks-api\Blocks-api\bin\Debug\net6.0\Serilog.Settings.Configuration.dll
+C:\Workflow\Project_Blocks\Blocks-api\Blocks-api\bin\Debug\net6.0\Serilog.Sinks.Console.dll
+C:\Workflow\Project_Blocks\Blocks-api\Blocks-api\bin\Debug\net6.0\Serilog.Sinks.Debug.dll
+C:\Workflow\Project_Blocks\Blocks-api\Blocks-api\bin\Debug\net6.0\Serilog.Sinks.File.dll

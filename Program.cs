@@ -1,5 +1,6 @@
 using Blocks_api.Db;
 using Blocks_api.Entities;
+using Blocks_api.Logger;
 using Blocks_api.Models;
 using Blocks_api.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -8,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Serilog;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -106,6 +108,14 @@ builder.Services.AddCors(options =>
                 .AllowAnyMethod();
         });
 });
+
+//Configure serilog
+Log.Logger = new LoggerConfiguration()
+    .MinimumLevel.Information()
+    .WriteTo.Console()
+    .CreateLogger();
+
+builder.Services.AddSingleton<IBlockLogger>(new SeriLogger());
 
 
 

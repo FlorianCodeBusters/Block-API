@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Blocks-api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4791f6d3e7c7ec70b589f27ef1768e05188ce511")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fbc70b1fcaa72336bca99b168b66ae6671935388")]
 [assembly: System.Reflection.AssemblyProductAttribute("Blocks-api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Blocks-api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

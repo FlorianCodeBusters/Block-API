@@ -1,10 +1,12 @@
+using Blocks_api.Logger;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Serilog;
 
 namespace Blocks_api.Controllers
 {
     [ApiController]
-    [Authorize(Policy = "StandardRights")]
+//    [Authorize(Policy = "StandardRights")]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
@@ -13,9 +15,8 @@ namespace Blocks_api.Controllers
         "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
     };
 
-        private readonly ILogger<WeatherForecastController> _logger;
-
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        private readonly Blocks_api.Logger.IBlockLogger _logger;
+        public WeatherForecastController(Blocks_api.Logger.IBlockLogger logger)
         {
             _logger = logger;
         }
@@ -30,13 +31,16 @@ namespace Blocks_api.Controllers
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            var result =  Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateTime.Now.AddDays(index),
                 TemperatureC = Random.Shared.Next(-20, 55),
                 Summary = Summaries[Random.Shared.Next(Summaries.Length)]
             })
             .ToArray();
+            Log.Information("Weather forecast => {@result}", result);
+
+            return result;
         }
     }
 }

@@ -44,7 +44,7 @@ namespace Blocks_api.Db
                 }
                 else
                 {
-                    Console.WriteLine($"Unable to create admin user: {string.Join(", ", creationResult.Errors)}");
+                    Console.Error.WriteLine($"Unable to create admin user: {string.Join(", ", creationResult.Errors)}");
                 }
             }
         }
