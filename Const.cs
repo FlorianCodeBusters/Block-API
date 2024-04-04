@@ -12,6 +12,11 @@
 
         public const string PassWordValidationErrorMessage = "Password must have more than 6 characters, min. 1 uppercase, min. 1 lowercase, min. 1 special characters.";
 
-
+        public class LoginProviders
+        {
+            public const string Google = "GOOGLE";
+            public const string Facebook = "FACEBOOK";
+            public const string Password = "PASSWORD";
+        }
     }
 }

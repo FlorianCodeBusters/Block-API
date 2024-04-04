@@ -107,3 +107,9 @@ C:\Workflow\Project_Blocks\Blocks-api\Blocks-api\bin\Debug\net6.0\Serilog.Settin
 C:\Workflow\Project_Blocks\Blocks-api\Blocks-api\bin\Debug\net6.0\Serilog.Sinks.Console.dll
 C:\Workflow\Project_Blocks\Blocks-api\Blocks-api\bin\Debug\net6.0\Serilog.Sinks.Debug.dll
 C:\Workflow\Project_Blocks\Blocks-api\Blocks-api\bin\Debug\net6.0\Serilog.Sinks.File.dll
+C:\Workflow\Project_Blocks\Blocks-api\Blocks-api\bin\Debug\net6.0\Google.Apis.dll
+C:\Workflow\Project_Blocks\Blocks-api\Blocks-api\bin\Debug\net6.0\Google.Apis.Auth.dll
+C:\Workflow\Project_Blocks\Blocks-api\Blocks-api\bin\Debug\net6.0\Google.Apis.Core.dll
+C:\Workflow\Project_Blocks\Blocks-api\Blocks-api\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Workflow\Project_Blocks\Blocks-api\Blocks-api\bin\Debug\net6.0\System.Management.dll
+C:\Workflow\Project_Blocks\Blocks-api\Blocks-api\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Management.dll

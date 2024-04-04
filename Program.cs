@@ -10,10 +10,24 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Serilog;
+using System.Collections;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
+configuration.AddEnvironmentVariables(prefix: "DOTNET_");
+
+
+Console.WriteLine($"facebook client ID {configuration["SocialLogin:Facebook:ClientId"]}");
+Console.WriteLine($"facebook token {configuration["SocialLogin:Facebook:ClientSecret"]}");
+Console.WriteLine(Environment.GetEnvironmentVariable("DOTNET_FACEBOOK_APP_SECRET",EnvironmentVariableTarget.Machine));
+foreach(DictionaryEntry i in Environment.GetEnvironmentVariables())
+{
+//    if(i.Key.ToString().Contains("DOTNET")) 
+        Console.WriteLine($"{i.Key}  {i.Value}");
+
+}
+
 
 //Add roles services
 builder.Services.AddIdentity<User, IdentityRole>()
