@@ -110,10 +110,15 @@ builder.Services.AddCors(options =>
 });
 
 //Configure serilog
-Log.Logger = new LoggerConfiguration()
+/*Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Information()
     .WriteTo.Console()
+    .CreateLogger();*/
+Log.Logger = new LoggerConfiguration()
+    .ReadFrom.Configuration(configuration)
     .CreateLogger();
+
+builder.Host.UseSerilog();
 
 builder.Services.AddSingleton<IBlockLogger>(new SeriLogger());
 
@@ -127,6 +132,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseSerilogRequestLogging();
 
 app.UseCors("AllowAngularDevClient");
 app.UseHttpsRedirection();
